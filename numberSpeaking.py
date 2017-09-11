@@ -124,6 +124,23 @@ elif len(number) == 6:
         speakNumber(int(number[4])*10)
         speakNumber(int(number[5]))
 elif len(number) == 7:
+    speakNumber(int(number[0]))
+    speakNumber(1000000)
+    speakNumber(int(number[1]))
+    speakNumber(100)
+    if 10 <= int(number[2:4]) <= 19:
+        speakNumber(int(number[2:4]))
+    elif 20 <= int(number[2:4]) <= 99:
+        speakNumber(int(number[2]) * 10)
+        speakNumber(int(number[3]))
+    speakNumber(1000)
+    speakNumber(int(number[4]))
+    speakNumber(100)
+    if 10 <= int(number[5:]) <= 19:
+        speakNumber(int(number[5:]))
+    elif 20 <= int(number[5:]) <= 99:
+        speakNumber(int(number[5]) * 10)
+        speakNumber(int(number[6]))
 
 
 
