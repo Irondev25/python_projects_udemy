@@ -60,7 +60,9 @@ def speakNumber(x):
     elif x == 90:
         playsound("/home/irondev/PycharmProjects/python_projects_udemy/audio-numbers/90.wav")
     elif x == 100:
-        playsound("/home/irondev/PycharmProjects/python_projects_udemy/audio-numbers/hunderd.wav")
+        playsound("/home/irondev/PycharmProjects/python_projects_udemy/audio-numbers/hundred.wav")
+    elif x == 1000:
+        playsound("/home/irondev/PycharmProjects/python_projects_udemy/audio-numbers/thousand.wav")
     elif x == 1000000:
         playsound("/home/irondev/PycharmProjects/python_projects_udemy/audio-numbers/million.wav")
 
@@ -76,11 +78,57 @@ elif len(number) == 2:
 elif len(number) == 3:
     speakNumber(int(number[0]))
     speakNumber(100)
-    if 10 <=int(number[1::]) <= 19:
+    if 10 <= int(number[1:]) <= 19:
         speakNumber(int(number))
     else:
-        speakNumber(int(number[0])*10)
+        speakNumber(int(number[1])*10)
+        speakNumber(int(number[2]))
+elif len(number) == 4:
+    speakNumber(int(number[0]))
+    speakNumber(1000)
+    speakNumber(int(number[1]))
+    speakNumber(100)
+    if 10 <= int(number[2:]) <= 19:
+        speakNumber(int(number))
+    else:
+        speakNumber(int(number[2]) * 10)
+        speakNumber(int(number[3]))
+elif len(number) == 5:
+    if 10 <= int(number[0:2]) <= 19:
+        speakNumber(int(number[0:2]))
+    elif 20 <= int(number[0:2]) <= 99:
+        speakNumber(int(number[0]) * 10)
         speakNumber(int(number[1]))
+    speakNumber(1000)
+    speakNumber(int(number[2]))
+    speakNumber(100)
+    if 10 <= int(number[3:]) <= 19:
+        speakNumber(int(number))
+    else:
+        speakNumber(int(number[3])*10)
+        speakNumber(int(number[4]))
+elif len(number) == 6:
+    speakNumber(int(number[0]))
+    speakNumber(100)
+    if 10 <= int(number[1:3]) <= 19:
+        speakNumber(int(number[1:3]))
+    elif 20 <= int(number[1:3]) <= 99:
+        speakNumber(int(number[1])*10)
+        speakNumber(int(number[2]))
+    speakNumber(1000)
+    speakNumber(int(number[3]))
+    speakNumber(100)
+    if 10 <= int(number[4:]) <= 19:
+        speakNumber(int(number[4:]))
+    elif 20 <= int(number[4:]) <= 99:
+        speakNumber(int(number[4])*10)
+        speakNumber(int(number[5]))
+elif len(number) == 7:
+
+
+
+
+
 
 
 
