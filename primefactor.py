@@ -1,4 +1,4 @@
-number = int(input("enter a number: "))
+number = int(input("enter a number(Except 0 and one): "))
 list = []
 
 
