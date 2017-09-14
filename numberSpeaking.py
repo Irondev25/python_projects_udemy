@@ -1,6 +1,9 @@
 from playsound import playsound
 
 
+number = str(input("Enter a number: "))
+
+
 def speakNumber(x):
     if x == 0:
         playsound("/home/irondev/PycharmProjects/python_projects_udemy/audio-numbers/0.wav")
@@ -67,41 +70,44 @@ def speakNumber(x):
 
 
 
-def proOnes(x):
-    if x != 0:
-        playsound(x)
+def speakHundred(x):
+    y = int(x)
 
-def proTens(x):
-    y = str(x)
-    if x[0] != 0:
-        if int(y[0]) == 0:
-            proOnes(int(y[1]))
-        elif 10 <= x <= 19:
-            playsound(x)
-        else:
-            x = str(x)
-            playsound(int(x[0]) * 10)
-            playsound(x[1])
-
-
-def proHundred(x):
-    if x != 0:
-        playsound(x)
-        playsound(100)
-
-def proThousand(x):
-    y = str(x)
-    if x != 0:
-        if x <= 9:
-            proOnes(x)
-            playsound(1000)
-        elif 100>x>9:
-            proTens(x)
-            playsound(1000)
-        elif x >= 100:
-            proHundred(int(y[0]))
-            proOnes(int(y[1:]))
+    if 0 <= y <= 9:
+        speakNumber(y)
+    elif 10 <= y <= 19:
+        speakNumber(y)
+    elif 19 <= y <= 99:
+        speakNumber(int(y / 10) * 10)
+        if (y % 10) != 0:
+            speakNumber(y % 10)
+    elif 100 <= y <= 999:
+        speakNumber(int(y / 100))
+        speakNumber(100)
+        z = y - int(y / 100) * 100
+        if 0 < z <= 9:
+            speakNumber(z)
+        elif 10 <= y <= 19:
+            speakNumber(z)
+        elif 20 <= z <= 99:
+            speakNumber(int(z / 10) * 10)
+            if (z % 10) != 0:
+                speakNumber(z % 10)
 
 
 
-def
+if 0 <= int(number) <= 999:
+    speakHundred(number)
+elif 1000 <= int(number) <= 999000:
+    speakHundred(number[0:len(number)-3])
+    speakNumber(1000)
+    speakHundred(number[len(number)-3:])
+elif 1000000 <= int(number) <= 999999999:
+    speakHundred(number[0:len(number)-6])
+    speakNumber(1000000)
+    speakHundred(number[len(number)-6:len(number)-3])
+    speakNumber(1000)
+    speakHundred(number[len(number)-3:])
+
+
+
