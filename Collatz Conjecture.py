@@ -1,3 +1,5 @@
+#collatz conjencture is a sequence of number which always ends at one....
+
 number = int(input("Enter a number(n > 1): "))
 
 ctr = 0
