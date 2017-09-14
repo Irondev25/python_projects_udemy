@@ -1,6 +1,5 @@
 from playsound import playsound
 
-number = str(input("Instruction:\nEnter any number and pogram will pronounce it.."))
 
 def speakNumber(x):
     if x == 0:
@@ -67,88 +66,42 @@ def speakNumber(x):
         playsound("/home/irondev/PycharmProjects/python_projects_udemy/audio-numbers/million.wav")
 
 
-if len(number) == 1:
-    speakNumber(int(number))
-elif len(number) == 2:
-    if 10 <=int(number) <= 19:
-        speakNumber(int(number))
-    else:
-        speakNumber(int(number[0])*10)
-        speakNumber(int(number[1]))
-elif len(number) == 3:
-    speakNumber(int(number[0]))
-    speakNumber(100)
-    if 10 <= int(number[1:]) <= 19:
-        speakNumber(int(number))
-    else:
-        speakNumber(int(number[1])*10)
-        speakNumber(int(number[2]))
-elif len(number) == 4:
-    speakNumber(int(number[0]))
-    speakNumber(1000)
-    speakNumber(int(number[1]))
-    speakNumber(100)
-    if 10 <= int(number[2:]) <= 19:
-        speakNumber(int(number))
-    else:
-        speakNumber(int(number[2]) * 10)
-        speakNumber(int(number[3]))
-elif len(number) == 5:
-    if 10 <= int(number[0:2]) <= 19:
-        speakNumber(int(number[0:2]))
-    elif 20 <= int(number[0:2]) <= 99:
-        speakNumber(int(number[0]) * 10)
-        speakNumber(int(number[1]))
-    speakNumber(1000)
-    speakNumber(int(number[2]))
-    speakNumber(100)
-    if 10 <= int(number[3:]) <= 19:
-        speakNumber(int(number))
-    else:
-        speakNumber(int(number[3])*10)
-        speakNumber(int(number[4]))
-elif len(number) == 6:
-    speakNumber(int(number[0]))
-    speakNumber(100)
-    if 10 <= int(number[1:3]) <= 19:
-        speakNumber(int(number[1:3]))
-    elif 20 <= int(number[1:3]) <= 99:
-        speakNumber(int(number[1])*10)
-        speakNumber(int(number[2]))
-    speakNumber(1000)
-    speakNumber(int(number[3]))
-    speakNumber(100)
-    if 10 <= int(number[4:]) <= 19:
-        speakNumber(int(number[4:]))
-    elif 20 <= int(number[4:]) <= 99:
-        speakNumber(int(number[4])*10)
-        speakNumber(int(number[5]))
-elif len(number) == 7:
-    speakNumber(int(number[0]))
-    speakNumber(1000000)
-    speakNumber(int(number[1]))
-    speakNumber(100)
-    if 10 <= int(number[2:4]) <= 19:
-        speakNumber(int(number[2:4]))
-    elif 20 <= int(number[2:4]) <= 99:
-        speakNumber(int(number[2]) * 10)
-        speakNumber(int(number[3]))
-    speakNumber(1000)
-    speakNumber(int(number[4]))
-    speakNumber(100)
-    if 10 <= int(number[5:]) <= 19:
-        speakNumber(int(number[5:]))
-    elif 20 <= int(number[5:]) <= 99:
-        speakNumber(int(number[5]) * 10)
-        speakNumber(int(number[6]))
+
+def proOnes(x):
+    if x != 0:
+        playsound(x)
+
+def proTens(x):
+    y = str(x)
+    if x[0] != 0:
+        if int(y[0]) == 0:
+            proOnes(int(y[1]))
+        elif 10 <= x <= 19:
+            playsound(x)
+        else:
+            x = str(x)
+            playsound(int(x[0]) * 10)
+            playsound(x[1])
+
+
+def proHundred(x):
+    if x != 0:
+        playsound(x)
+        playsound(100)
+
+def proThousand(x):
+    y = str(x)
+    if x != 0:
+        if x <= 9:
+            proOnes(x)
+            playsound(1000)
+        elif 100>x>9:
+            proTens(x)
+            playsound(1000)
+        elif x >= 100:
+            proHundred(int(y[0]))
+            proOnes(int(y[1:]))
 
 
 
-
-
-
-
-
-
-
-
+def
