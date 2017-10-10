@@ -1,3 +1,4 @@
+# a simple shop inventory
 import shelve
 
 class product:
